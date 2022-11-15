@@ -17,6 +17,7 @@
     "test:public": "ts-node node_modules/tape/bin/tape ./test/resources-public/**/*.test.ts | tap-spec",
     "preversion": "npm test && npm run build",
     "prepublishOnly": "npm test && npm run dist",
+    "prepare": "npm run build",
     "dev": "ts-node -T ./dev.ts",
     "dist": "tsc",
     "build": "tsc",
