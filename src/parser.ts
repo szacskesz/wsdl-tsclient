@@ -29,19 +29,64 @@ function findReferenceDefiniton(visited: Array<VisitedDefinition>, definitionPar
     return visited.find((def) => def.parts === definitionParts);
 }
 
-const NODE_SOAP_PARSED_TYPES: { [type: string]: string } = {
-    int: "number",
-    integer: "number",
-    short: "number",
-    long: "number",
-    double: "number",
-    float: "number",
-    decimal: "number",
-    bool: "boolean",
-    boolean: "boolean",
-    dateTime: "Date",
-    date: "Date",
-};
+/* eslint-disable prettier/prettier */
+const NODE_SOAP_PARSED_TYPES: Record<string, string> = Object.entries({
+    "decimal":              "number",
+    "integer":              "number",
+    "int":                  "number",
+    "long":                 "number",
+    "short":                "number",
+    "double":               "number",
+    "float":                "number",
+    "byte":                 "number",
+    "unsignedInt":          "number",
+    "unsignedLong":         "number",
+    "unsignedShort":        "number",
+    "unsignedByte":         "number",
+    "positiveInteger":      "number",
+    "negativeInteger":      "number",
+    "nonPositiveInteger":   "number",
+    "nonNegativeInteger":   "number",
+    
+    "boolean":              "boolean",
+    "bool":                 "boolean",
+    
+    "date":                 "Date",
+    "dateTime":             "Date",
+
+    "string":               "string",
+    "duration":             "string",
+    "time":                 "string",
+    "gYearMonth":           "string",
+    "gYear":                "string",
+    "gMonthDay":            "string",
+    "gDay":                 "string",
+    "gMonth":               "string",
+    "hexBinary":            "string",
+    "base64Binary":         "string",
+    "anyURI":               "string",
+    "QName":                "string",
+    "NOTATION":             "string",
+    "normalizedString":     "string",
+    "token":                "string",
+    "language":             "string",
+    "NMTOKEN":              "string",
+    "NMTOKENS":             "string",
+    "Name":                 "string",
+    "NCName":               "string",
+    "ID":                   "string",
+    "IDREF":                "string",
+    "IDREFS":               "string",
+    "ENTITY":               "string",
+    "ENTITIES":             "string",
+}).reduce((pv, cv) => {
+    return {
+        ...pv,
+        [cv[0]]: cv[1],
+        ["xs:" + cv[0]]: cv[1],
+    }
+}, {});
+/* eslint-enable */
 
 /**
  * parse definition
