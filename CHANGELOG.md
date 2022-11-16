@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2022-11-16
+- Fix primitive type mappings between xml and typescript
+- CLI: Add option for `skipOutputSubdirectory`, default `false`
+
 ## [1.4.0] - 2022-04-27
 
 - Fix issue with self recursive WSDL types [#39](https://github.com/dderevjanik/wsdl-tsclient/pull/39) by @mtranter

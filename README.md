@@ -50,6 +50,9 @@ Options:
   -v, --version                                                        [boolean]
   -o                                Output directory         [string] [required]
       --emitDefinitionsOnly         Generate only Definitions          [boolean]
+      --skipOutputSubdirectory      Skip creating a subdirectory based on the
+                                    wsdl filename inside the output directory
+                                                                       [boolean]
       --modelNamePreffix            Prefix for generated interface names[string]
       --modelNameSuffix             Suffix for generated interface names[string]
       --caseInsensitiveNames        Case-insensitive name while parsing
